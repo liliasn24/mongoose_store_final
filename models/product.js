@@ -2,7 +2,7 @@ const product = [
   {
     name: 'Alegria Bars',
     description: 'Amaranth based candy',
-    img: 'https://static.onecms.io/wp-content/uploads/sites/9/2021/02/12/cafe-de-olla-allegria-FT-RECIPE0321.jpg',
+    img: 'https://i.pinimg.com/originals/0e/4d/7d/0e4d7d2c89687cc4a2d6a22d687b726f.jpg',
     price: 4,
     qty: 10
   },

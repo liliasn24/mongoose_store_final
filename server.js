@@ -15,8 +15,9 @@ INDUCES Routes
 Index
 */
 app.get('/product', (req, res) => {
-  res.render('Index');
-})
+  res.render('Index', {
+    product: product })
+  });
 
 /*
 New
@@ -39,8 +40,7 @@ Show
 
 app.get('/product/:id', (req, res) => {
   res.render('Show', {
-    fruit:
-    fruits[req.params.id]
+    product: product[req.params.id]
   });
 })
 
