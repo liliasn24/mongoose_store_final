@@ -12,7 +12,7 @@ class Index extends React.Component {
               return (
                 <li>
                   {product.name}<br/>
-                  <a href={'/product/${i}'}><img src ={product.img}/></a><br/>
+                  <a href={`/product/${i}`}><img src ={product.img}/></a><br/>
                   Price: {product.price}<br/>
                   <a href={'/product/new'}>Add a new product</a><br/>
                 </li>

@@ -6,7 +6,13 @@ const product = require('./models/product')
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
 
+app.use((req, res, next) => {
+  console.log('I run before all routes ************************')
+  next()
+})
 
+app.use(express.urlencoded({ extended: true
+}))
 
 /*****************
 INDUCES Routes
@@ -22,6 +28,10 @@ app.get('/product', (req, res) => {
 /*
 New
 */
+app.get('/product/new', (req, res) => {
+  res.render('New');
+})
+
 /*
 Delete
 */
@@ -31,6 +41,9 @@ Update
 /*
 Create
 */
+app.post('/product', (req, res) => {
+  res.send(req.body);
+})
 /*
 Edit
 */
