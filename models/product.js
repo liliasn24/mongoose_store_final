@@ -1,25 +1,13 @@
-const product = [
-  {
-    name: 'Alegria Bars',
-    description: 'Amaranth based candy',
-    img: 'https://i.pinimg.com/originals/0e/4d/7d/0e4d7d2c89687cc4a2d6a22d687b726f.jpg',
-    price: 4,
-    qty: 10
-  },
-  {
-    name: 'Palanqueta Bars',
-    description: 'Peanut based candy',
-    img: 'https://i0.wp.com/i.imgur.com/wEkLO.jpg',
-    price: 5,
-    qty: 20
-  },
-  {
-    name: 'Cocada Bars',
-    description: 'Coconot based candy',
-    img: 'https://media.istockphoto.com/photos/mexican-coconut-candy-cocada-picture-id1146535650',
-    price: 7,
-    qty: 15
-  },
-]
+const { Schema, model } = require('mongoose');
 
-module.exports = product;
+const productSchema = new Schema({
+  name: { type: String, required: true },
+  description: { type: String, required: true },
+  img: { type: String, required: false },
+  price: { type: Number, required: true },
+  qty: { type: Number, required: true }
+});
+
+ const Product = model('Product', productSchema);
+
+ module.exports = Product;

@@ -1,7 +1,23 @@
+require('dotenv').config()
 const express = require('express');
 const app = express();
 const PORT = 3000;
-const product = require('./models/product')
+const Product = require('./models/product')
+
+/***************
+Database Setup
+***************/
+const mongoose = require('mongoose');
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false
+})
+
+mongoose.connection.once('open', () => {
+  console.log('connected to mongo')
+})
 
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
@@ -21,9 +37,18 @@ INDUCES Routes
 Index
 */
 app.get('/product', (req, res) => {
-  res.render('Index', {
-    product: product })
-  });
+ Product.find({}, (err, foundProduct) => {
+   if(err){
+     res.status(404).send({
+       msg: err.message
+     })
+   } else {
+     res.render('Index', {
+       product: foundProduct
+     })
+   }
+ })
+});
 
 /*
 New
@@ -42,7 +67,16 @@ Update
 Create
 */
 app.post('/product', (req, res) => {
-  res.send(req.body);
+  Product.create(req.body, (err, createdProduct) => {
+    if(err){
+      res.status(404).send({
+        msg:err.message
+      })
+    } else {
+      console.log(createdProduct);
+      res.redirect('/product')
+    }
+  })
 })
 /*
 Edit
@@ -52,9 +86,17 @@ Show
 */
 
 app.get('/product/:id', (req, res) => {
-  res.render('Show', {
-    product: product[req.params.id]
-  });
+  Product.findById(req.params.id, (err, foundProduct) => {
+    if(err){
+      res.status(404).send({
+        msg: err.message
+      })
+    } else {
+      res.render('Show', {
+        product: foundProduct
+      })
+    }
+  })
 })
 
 
