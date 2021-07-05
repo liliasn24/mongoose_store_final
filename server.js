@@ -144,7 +144,7 @@ app.post('/product', (req, res) => {
 Edit
 */
 app.get('/product/:id/edit', (req, res) =>{
-  Product.findById(req.params.id, (err, foundLogs)=> {
+  Product.findById(req.params.id, (err, foundProduct)=> {
     if(err){
       res.status(404).send({
         msg: err.message
