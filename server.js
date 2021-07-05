@@ -103,13 +103,28 @@ app.delete('/product/:id', (req, res) => {
       })
     } else {
       res.redirect('/product')
-      }
+    }
   })
 })
 
 /*
 Update
 */
+
+app.put('/product/:id', (req, res) => {
+  Product.findByIdAndUpdate(req.params.id, req.body, { new: true}, (err, updatedProduct) => {
+    if(err){
+      res.status(404).send({
+        msg: err.message
+      })
+    } else {
+      res.render('Show', {
+        product: updatedProduct
+      })
+    }
+  })
+})
+
 /*
 Create
 */
@@ -128,6 +143,20 @@ app.post('/product', (req, res) => {
 /*
 Edit
 */
+app.get('/product/:id/edit', (req, res) =>{
+  Product.findById(req.params.id, (err, foundLogs)=> {
+    if(err){
+      res.status(404).send({
+        msg: err.message
+      })
+    }else {
+      res.render('Edit', {
+        product: foundProduct
+      })
+    }
+  })
+})
+
 /*
 Show
 */
