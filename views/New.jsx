@@ -1,9 +1,11 @@
 const React = require('react');
+const DefaultLayout = require('./layouts/Default');
+
 
 class New extends React.Component {
   render() {
     return (
-      <div>
+      <DefaultLayout title={'Enter a New Product'}>
         <h1>Enter a new product</h1>
         <form action='/product' method='POST'>
           Name: <input type='text' name='name' /><br/>
@@ -13,7 +15,7 @@ class New extends React.Component {
           Quantity: <input type='text' name='qty' /><br/>
           <input type="submit" name="" value="Create Product"/>
         </form>
-      </div>
+      </DefaultLayout>
     )
   }
 }

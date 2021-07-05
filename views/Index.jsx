@@ -1,11 +1,20 @@
 const React = require('react');
+const DefaultLayout = require('./layouts/Default');
+
+const h1Style = {
+  color: '#000000',
+  backgroundColor: '#CC6666',
+  fontStyle: 'italic',
+}
+
+
 
 class Index extends React.Component {
   render () {
     const product = this.props.product;
     return (
-      <div>
-        <h1>See all the Products</h1>
+      <DefaultLayout title={'Product Index Page'}>
+        <h1 style={h1Style}>See all the Products</h1>
         <ul>
           {
             product.map((product, i) => {
@@ -19,7 +28,7 @@ class Index extends React.Component {
               );
             })}
         </ul>
-      </div>
+      </DefaultLayout>
     );
   }
 }

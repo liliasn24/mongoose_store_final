@@ -30,6 +30,40 @@ app.use((req, res, next) => {
 app.use(express.urlencoded({ extended: true
 }))
 
+const methodOverride = require('method-override')
+app.use(methodOverride('_method'));
+/*******************
+Seed Route
+*******************/
+
+app.get('/product/seed', (req, res) => {
+  Product.create([
+    {
+    name: 'Alegria Bars',
+    description: 'Amaranth based candy',
+    img: 'https://i.pinimg.com/originals/0e/4d/7d/0e4d7d2c89687cc4a2d6a22d687b726f.jpg',
+    price: 4,
+    qty: 10
+  },
+  {
+    name: 'Palanqueta Bars',
+    description: 'Peanut based candy',
+    img: 'https://i0.wp.com/i.imgur.com/wEkLO.jpg',
+    price: 5,
+    qty: 20
+  },
+  {
+    name: 'Cocada Bars',
+    description: 'Coconot based candy',
+    img: 'https://media.istockphoto.com/photos/mexican-coconut-candy-cocada-picture-id1146535650',
+    price: 7,
+    qty: 15
+  }
+], (err, data) => {
+  res.redirect('/product')
+ })
+});
+
 /*****************
 INDUCES Routes
 ******************/
@@ -60,6 +94,19 @@ app.get('/product/new', (req, res) => {
 /*
 Delete
 */
+
+app.delete('/product/:id', (req, res) => {
+  Product.findByIdAndDelete(req.params.id, (err, foundProduct) => {
+    if(err){
+      res.status(404).send({
+        msg: err.message
+      })
+    } else {
+      res.redirect('/product')
+      }
+  })
+})
+
 /*
 Update
 */
