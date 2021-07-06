@@ -1,6 +1,8 @@
+
 require('dotenv').config()
 const express = require('express');
 const app = express();
+
 const PORT = 3000;
 const Product = require('./models/product')
 
@@ -18,6 +20,8 @@ mongoose.connect(process.env.MONGO_URI, {
 mongoose.connection.once('open', () => {
   console.log('connected to mongo')
 })
+
+app.use(express.static('public'));
 
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
@@ -40,23 +44,23 @@ app.get('/product/seed', (req, res) => {
   Product.create([
     {
     name: 'Alegria Bars',
-    description: 'Amaranth based candy',
+    description: 'Amaranth based snack',
     img: 'https://i.pinimg.com/originals/0e/4d/7d/0e4d7d2c89687cc4a2d6a22d687b726f.jpg',
     price: 4,
     qty: 10
   },
   {
-    name: 'Palanqueta Bars',
-    description: 'Peanut based candy',
-    img: 'https://i0.wp.com/i.imgur.com/wEkLO.jpg',
-    price: 5,
+    name: 'Peanut Bars',
+    description: 'Peanut based snack',
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwM_g7WAAreV2u2uXREUfg0vJINU5tEE-71w&usqp=CAU',
+    price: 3.5,
     qty: 20
   },
   {
     name: 'Cocada Bars',
-    description: 'Coconot based candy',
-    img: 'https://media.istockphoto.com/photos/mexican-coconut-candy-cocada-picture-id1146535650',
-    price: 7,
+    description: 'Coconot based snack',
+    img: 'https://www.sweetandsavorybyshinee.com/wp-content/uploads/2014/04/Cocadas-1-600x650.jpg',
+    price: 3,
     qty: 15
   }
 ], (err, data) => {
@@ -83,6 +87,10 @@ app.get('/product', (req, res) => {
    }
  })
 });
+
+app.get('/product/about', (req, res) =>{
+  res.render('About');
+})
 
 /*
 New
@@ -121,6 +129,18 @@ app.put('/product/:id', (req, res) => {
       res.render('Show', {
         product: updatedProduct
       })
+    }
+  })
+})
+
+app.put('product/:id/quantity', (req, res) => {
+  Product.findByIdAndUpdate(req.params.id, req.body, { new: true}, (err, updatedQuantity) =>{
+    if(err){
+      res.status(404).send({
+        msg: err.message
+      })
+    } else {
+      res.send('adding')
     }
   })
 })
