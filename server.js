@@ -114,9 +114,12 @@ app.delete('/product/:id', (req, res) => {
   })
 })
 
+
 /*
 Update
 */
+
+
 
 app.put('/product/:id', (req, res) => {
   Product.findByIdAndUpdate(req.params.id, req.body, { new: true}, (err, updatedProduct) => {
@@ -132,14 +135,14 @@ app.put('/product/:id', (req, res) => {
   })
 })
 
-app.put('product/:id/quantity', (req, res) => {
-  Product.findByIdAndUpdate(req.params.id, req.body, { new: true}, (err, updatedQuantity) =>{
+app.get('/product/:id/buy', (req, res) => {
+  Product.findByIdAndUpdate(req.params.id, { $inc: {'qty': -1 } }, {new: true}, (err, updatedQuantity) =>{
     if(err){
       res.status(404).send({
         msg: err.message
       })
     } else {
-      res.send('adding')
+      res.redirect(`/product/${req.params.id}`)
     }
   })
 })
@@ -193,6 +196,7 @@ app.get('/product/:id', (req, res) => {
     }
   })
 })
+
 
 
 
