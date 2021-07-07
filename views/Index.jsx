@@ -7,7 +7,7 @@ class Index extends React.Component {
     const product = this.props.product;
     return (
       <DefaultLayout
-        title={'Product Index Page'}>
+        title={'Energy Snacks'}>
         <h1>See all the Products</h1>
         <a href='/product/about'>About</a>
         <ul>
