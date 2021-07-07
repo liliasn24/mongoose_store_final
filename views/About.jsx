@@ -5,10 +5,10 @@ const DefaultLayout = require('./layouts/Default');
 class About extends React.Component {
   render () {
     return (
-      <DefaultLayout title={'Product About Page'}>
+      <DefaultLayout title={'Snacks About Page'}>
         <h1>About us</h1>
         <h3>
-          We make energy bars inspired by the traditional candies in Mexico.
+          We make nourishing snacks that will fuel your brain and body for hours.
         </h3>
         <ul>
           <li>Healthy snacks</li>
