@@ -62,7 +62,29 @@ app.get('/product/seed', (req, res) => {
     img: 'https://lh3.googleusercontent.com/proxy/AF0nctXb71qnK6hqflY88UFOvKXn-3a-6WT3gDTU0tedzOobCjfl5_wYfdZcaEUyt4bmS2Thokl00dHJgBgP5NmJab4C2Gll8mICltlyne6TFzRdojR6yR3TKrt7z3cnu5A',
     price: 3,
     qty: 15
-  }
+  },
+  {
+    name: 'No bake Bars',
+    description: 'Fruit based snack',
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDNGwicwBB-znL2HvNWpeW8ovAN5UMLSlx6A&usqp=CAU',
+    price: 2.5,
+    qty: 15
+  },
+  {
+    name: 'Raspberry Squares',
+    description: 'Raspberry based snack',
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6iNOYenc7oRauJ4dMHDB18Fgpx8szJwHREg&usqp=CAU',
+    price: 2,
+    qty: 12
+  },
+  {
+    name: 'Dark Chocolate Mini',
+    description: 'Dark Chocolate based snack',
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpCAo_h4xkS0UPPKhszr9DjBTkBydKNk1GIA&usqp=CAU',
+    price: 2.5,
+    qty: 20
+  },
+
 ], (err, data) => {
   res.redirect('/product')
  })
