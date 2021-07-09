@@ -1,9 +1,9 @@
 body {
-  background-color: #6B8E23;
+  background-color: #C0D9AF;
 }
 
 h1 {
-  align-items: center;
   color: black;
   font-size: 4rem;
+  font-style: italic;
 }

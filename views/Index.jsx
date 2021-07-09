@@ -7,7 +7,7 @@ class Index extends React.Component {
     const product = this.props.product;
     return (
       <DefaultLayout
-        title={'Energy Snacks'}>
+        title={'Energy Snacks'} styles={[{key:0, href: '/css/app.css'}, {key:1, href:'/css/indexpage.css'}]}>
         <h1>See all the Products</h1>
         <a href='/product/about'>About</a>
         <ul>
@@ -16,7 +16,7 @@ class Index extends React.Component {
               return (
                 <li key={product._id}>
                   {product.name + '  ****'} Price: {'$' + product.price}<br/>
-                  <a href={`/product/${product._id}`}><img src ={product.img}/></a><br/>
+                  <a href={`/product/${product._id}`}><img className='container' src ={product.img}/></a><br/>
 
                 </li>
               );

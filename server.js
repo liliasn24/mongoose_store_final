@@ -36,6 +36,7 @@ app.use(express.urlencoded({ extended: true
 
 const methodOverride = require('method-override')
 app.use(methodOverride('_method'));
+app.use(express.static('public'));
 /*******************
 Seed Route
 *******************/
@@ -59,7 +60,7 @@ app.get('/product/seed', (req, res) => {
   {
     name: 'Cocada Bars',
     description: 'Coconot based snack',
-    img: 'https://lh3.googleusercontent.com/proxy/AF0nctXb71qnK6hqflY88UFOvKXn-3a-6WT3gDTU0tedzOobCjfl5_wYfdZcaEUyt4bmS2Thokl00dHJgBgP5NmJab4C2Gll8mICltlyne6TFzRdojR6yR3TKrt7z3cnu5A',
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvtI_rHTxbeeMmlv02K2OLaW0wESENRY4-BQ&usqp=CAU',
     price: 3,
     qty: 15
   },

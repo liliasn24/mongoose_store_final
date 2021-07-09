@@ -6,7 +6,7 @@ class Show extends React.Component {
   render () {
     const product = this.props.product;
     return (
-      <DefaultLayout  title={`${this.props.product.name.toUpperCase()} Show Page`}>
+      <DefaultLayout  title={`${this.props.product.name.toUpperCase()} Show Page`} styles={[{key:0, href: '/css/app.css'}, {key:1, href:'/css/showpage.css'}]}>
         <h1>{product.name}</h1><br/>
         Brief Description: {product.description}<br/>
         Quantity: {product.qty}<br/>
