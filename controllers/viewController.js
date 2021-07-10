@@ -18,6 +18,9 @@ const viewController = {
     res.redirect(RESOURCE_PATH)
   },
   redirectShow(req, res, next){
+    res.redirect(RESOURCE_PATH + `/product/${req.params.id}`)
+  },
+  redirectShow(req, res, next){
     res.redirect(RESOURCE_PATH + `/${req.params.id}`)
   }
 }
