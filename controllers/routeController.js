@@ -19,7 +19,7 @@ router.delete('/:id', dataController.destroy, viewController.redirectHome)
 router.put('/:id', dataController.update, viewController.redirectShow)
 
 //Buy
-router.get('/product/:id/buy', dataController.update, viewController.redirectShow)
+router.get('/:id/buy', dataController.buy, viewController.redirectShow)
 
 //Create
 router.post('/', dataController.create, viewController.redirectHome)

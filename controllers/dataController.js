@@ -52,14 +52,17 @@ const dataController = {
       }
     })
   },
-  update(req, res, next) {
-    Product.findByIdAndUpdate(req.params.id, { $inc: {'qty': -1} }, {new: true}, (err, updatedQuantity) =>{
+  buy(req, res, next) {
+    Product.findByIdAndUpdate(req.params.id, { $inc: {qty: -1} }, (err, updatedQuantity) =>{
       if(err){
         res.status(404).send({
           msg: err.message
         })
       } else {
-        res.redirect(`/product/${req.params.id}`)
+        console.log('updated quantity', updatedQuantity)
+        res.locals.data.product = updatedQuantity;
+        next()
+        // res.redirect(`/product/${req.params.id}`)
       }
     })
   },
