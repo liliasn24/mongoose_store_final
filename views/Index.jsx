@@ -6,10 +6,10 @@ class Index extends React.Component {
   render () {
     const product = this.props.product;
     return (
-      <DefaultLayout
+      <DefaultLayout class="title"
         title={'Energy Snacks'} styles={[{key:0, href: '/css/app.css'}, {key:1, href:'/css/indexpage.css'}]}>
         <h1>See all the Products</h1>
-        <a href='/product/about'>About</a>
+        <a id="index" href='/product/about'>About</a>
         <ul>
           {
             product.map((product, i) => {
