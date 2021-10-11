@@ -14,7 +14,7 @@ class Index extends React.Component {
           {
             product.map((product, i) => {
               return (
-                <li key={product._id}>
+                <li class="container" key={product._id}>
                   {product.name + '  ****'} Price: {'$' + product.price}<br/>
                   <a href={`/product/${product._id}`}><img className='container' src ={product.img}/></a><br/>
 

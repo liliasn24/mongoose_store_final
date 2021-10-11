@@ -4,6 +4,7 @@ const express = require('express');
 const methodOverride = require('method-override');
 const db = require('./models/db')
 const app = express();
+// const bootstrap = require('bootstrap');
 const PORT = process.env.PORT || 3000;
 
 //Set up data
