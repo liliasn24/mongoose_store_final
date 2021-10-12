@@ -4,27 +4,27 @@
   font-size: 6rem;
 } */
 
-ul {
+/* ul {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-}
+} */
 
 
 
 img {
-  border: #ccc solid 1px;
+  border: black solid 1px;
   padding: 1rem;
   text-align: center;
   margin: 0.75rem;
   flex: 1;
   border-radius: 30px;
-  width: 300px;
+  width: 250px;
   height: 250px;
 }
 
-li {
-  color: white;
+/* li {
+  color: black;
   font-size: 1.5rem;
   font-style: italic;
-}
+} */
