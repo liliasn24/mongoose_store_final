@@ -7,6 +7,30 @@ class Index extends React.Component {
     const product = this.props.product;
     return (
       <DefaultLayout styles={[{key:0, href: '/css/app.css'}, {key:1, href:'/css/indexpage.css'}]}>
+
+      <nav class="navbar navbar-expand-sm navbar-light mb-3">
+      <div class="container">
+          <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">About</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">Services</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">Contact</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
       <div class="container">
         <h1 class="display-2 text-center my-4">See all the Products</h1>
         <a class="btn btn-dark mb-5" id="index" href='/product/about'>About</a>
