@@ -41,6 +41,7 @@ class Index extends React.Component {
                 <li class="m-3" key={product._id}>
                   <a href={`/product/${product._id}`}><img className='container' src ={product.img}/></a><br/>
                   {product.name + '  ****'} Price: {'$' + product.price}<br/>
+                  <button class="btn btn-dark mb-5">Add to Cart</button>
 
                 </li>
               );
