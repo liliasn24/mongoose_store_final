@@ -20,7 +20,7 @@ class Show extends React.Component {
         <a class="btn btn-dark" href={`/product`}>Back to main page</a><br/><br/>
         </div>
         <form action={`/product/${product._id}/buy`}>
-        <input class="form-control btn-dark btn-lg mb-5" type="submit" value="B  U  Y"/></form>
+        <input class="form-control btn-dark btn-lg mb-5" type="submit" value="Add to cart"/></form>
         <form method="POST" action={`/product/${product._id}?_method=Delete`}>
         <input class="btn btn-danger" type="submit" value="Delete"/></form>
         </div>

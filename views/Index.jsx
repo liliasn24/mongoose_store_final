@@ -1,6 +1,6 @@
 const React = require('react');
 const DefaultLayout = require('./layouts/Default');
-
+import { FaShoppingCart } from 'react-icons/fa';
 
 class Index extends React.Component {
   render () {
@@ -13,6 +13,11 @@ class Index extends React.Component {
           <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
               <span class="navbar-toggler-icon"></span>
           </button>
+          <div>
+          <i className="buy">
+          						<FaShoppingCart />
+          					</i>
+                    </div>
           <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav ml-auto">
                   <li class="nav-item">
