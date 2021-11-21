@@ -1,12 +1,15 @@
 const React = require('react');
 const DefaultLayout = require('./layouts/Default');
-
+import { FaShoppingCart } from 'react-icons/fa';
 
 class Show extends React.Component {
   render () {
     const product = this.props.product;
     return (
       <DefaultLayout styles={[{key:0, href: '/css/app.css'}, {key:1, href:'/css/showpage.css'}]}>
+      <i className="buy">
+                  <FaShoppingCart />
+                </i>
         <div class="container">
         <div class="display-6 text-center my-4">
         Product: {product.name}<br/>
